@@ -25,11 +25,12 @@ flex: 0 1 auto;
 `flex: initial`，`flex: 0 auto` 与 `flex: 0 1 auto` 相同
 当有剩余空间时，项目不会伸缩，当空间不足时项目可收缩
 
-## checkbox
-
-样式用这里的样式
-[http://chenglou.github.io/react-motion/demos/demo3-todomvc-list-transition/](http://chenglou.github.io/react-motion/demos/demo3-todomvc-list-transition/)
-
 ## reference 参考
 
 [React Async rendering](http://www.ayqy.net/blog/react-async-rendering/)
+
+[http://chenglou.github.io/react-motion/demos/demo3-todomvc-list-transition/](http://chenglou.github.io/react-motion/demos/demo3-todomvc-list-transition/)
+
+## try
+
+fuse-box
