@@ -1,0 +1,11 @@
+@include comp(button) {
+  width: 120px;
+  height: 30px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 14px;
+  color: var(--foreground-dark);
+  cursor: pointer;
+  //   background-color: var(--background-dark);
+}

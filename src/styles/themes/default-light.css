@@ -1,0 +1,18 @@
+.theme_default-light {
+  /*----------  menu  ----------*/
+
+  --menu_background: #e1e1e1;
+  --menuItem_foreground: #333333;
+  --menuItem_hoverBackground: #cccccc;
+  --menuItem_activeBackground: #cccccc;
+  --menuGroup_foreground: #333333;
+  --subMenu_foreground: #333333;
+  /*----------  tabs  ----------*/
+
+  --tabs_foreground: #999999;
+  --tabs_hoverForeground: #666666;
+  --tabs_activeForeground: #333333;
+
+  /*----------  button  ----------*/
+  /* TODO */
+}

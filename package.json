@@ -1,0 +1,87 @@
+{
+  "name": "fluent-ui",
+  "version": "0.0.1",
+  "description": "A UI toolkit demo for react",
+  "main": "index.js",
+  "scripts": {
+    "lint:script": "tslint -c tslint.json 'src/**/*.{ts,tsx}' --exclude 'src/**/*css.d.ts'",
+    "lint:style": "stylelint **/*.scss",
+    "dev": "cross-env APP_ENV=dev webpack-dev-server --config build/webpack.config.js --mode development --progress --open --hot",
+    "build": "webpack --config build/webpack.config.js --mode production --progress"
+  },
+  "keywords": [
+    "React",
+    "Typescript",
+    "UI"
+  ],
+  "license": "MIT",
+  "dependencies": {
+    "animejs": "^2.2.0",
+    "classnames": "^2.2.6",
+    "modern-normalize": "^0.4.0",
+    "popmotion": "^8.3.3",
+    "prop-types": "^15.6.2",
+    "ramda": "^0.25.0",
+    "react": "^16.4.2",
+    "react-dom": "^16.4.2",
+    "react-hot-loader": "^4.3.4",
+    "react-loadable": "^5.4.0",
+    "react-pose": "^2.2.0",
+    "react-router-dom": "^4.3.1",
+    "stylefire": "^2.0.6"
+  },
+  "peerDependencies": {
+    "react": "^16.4.2",
+    "react-dom": "^16.4.2"
+  },
+  "devDependencies": {
+    "@types/animejs": "^2.0.0",
+    "@types/classnames": "^2.2.6",
+    "@types/node": "^9.6.25",
+    "@types/prop-types": "^15.5.4",
+    "@types/ramda": "^0.25.36",
+    "@types/react": "^16.4.7",
+    "@types/react-dom": "^16.0.6",
+    "@types/react-loadable": "^5.4.1",
+    "@types/react-router-dom": "^4.3.0",
+    "@types/webpack-env": "^1.13.5",
+    "autoprefixer": "^8.6.5",
+    "cache-loader": "^1.2.2",
+    "clean-webpack-plugin": "^0.1.19",
+    "cross-env": "^5.2.0",
+    "css-loader": "^0.28.10",
+    "extract-text-webpack-plugin": "^4.0.0-beta.0",
+    "file-loader": "^1.1.11",
+    "html-webpack-plugin": "^3.0.6",
+    "node-sass": "^4.9.2",
+    "postcss-loader": "^2.1.6",
+    "sass-loader": "^7.1.0",
+    "style-loader": "^0.20.3",
+    "stylelint": "^9.4.0",
+    "stylelint-config-standard": "^18.2.0",
+    "stylelint-order": "^0.8.1",
+    "stylelint-scss": "^3.2.0",
+    "thread-loader": "^1.2.0",
+    "ts-loader": "^4.4.2",
+    "tslib": "^1.9.3",
+    "tslint": "^5.11.0",
+    "tslint-react": "^3.6.0",
+    "typescript": "^3.0.1",
+    "typings-for-css-modules-loader": "^1.7.0",
+    "url-loader": "^1.0.1",
+    "webpack": "^4.16.4",
+    "webpack-bundle-analyzer": "^2.13.1",
+    "webpack-cli": "^2.1.5",
+    "webpack-dev-server": "^3.1.5",
+    "webpack-hot-middleware": "^2.22.3"
+  },
+  "engines": {
+    "node": ">= 8.10.0",
+    "npm": ">= 5.0.0"
+  },
+  "browserslist": [
+    "> 1%",
+    "last 2 versions",
+    "not ie <= 8"
+  ]
+}

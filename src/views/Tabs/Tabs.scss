@@ -1,0 +1,20 @@
+.demo {
+  font-family: 'Avenir', Helvetica, Arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-align: center;
+  color: #2c3e50;
+  margin-top: 60px;
+
+  .logo {
+    width: 100px;
+    height: 100px;
+    object-fit: contain;
+  }
+
+  .tabs-wrapper {
+    margin: 20px auto;
+    width: 400px;
+    height: 200px;
+  }
+}

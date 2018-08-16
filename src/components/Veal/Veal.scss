@@ -1,0 +1,40 @@
+.#{$ns}-reveal-outer {
+  width: 100%;
+  height: 100%;
+  box-sizing: border-box;
+  border: 1px solid transparent;
+  background-attachment: fixed;
+  //   background-clip: border-box;
+  background-repeat: no-repeat;
+  background-size: var(--light-size);
+  background-position: var(--light-position);
+  background-image: radial-gradient(
+    closest-side,
+    hsla(
+      var(--light-hue),
+      var(--light-saturation),
+      var(--light-lightness),
+      var(--light-alpha)
+    ),
+    transparent
+  );
+
+  .#{$ns}-reveal-inner {
+    box-sizing: border-box;
+    width: inherit;
+    height: inherit;
+    // width: 100%;
+    // height: 100%;
+    background-color: #ffffff;
+  }
+
+  &:hover {
+    border: 1px solid
+      hsla(
+        var(--light-hue),
+        var(--light-saturation),
+        var(--light-lightness),
+        var(--light-alpha)
+      );
+  }
+}

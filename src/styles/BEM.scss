@@ -1,0 +1,25 @@
+$ns: 'fd';
+
+/*----------  Generate component classname  ----------*/
+
+@function compFunc($component) {
+  @return '#{$ns}-#{$component}';
+}
+
+@mixin comp($component) {
+  $componentName: compFunc($component);
+
+  .#{$componentName} {
+    @content;
+  }
+}
+
+/*----------  Generate element classname  ----------*/
+
+@mixin elem($name) {
+  $modifier: '_';
+
+  @at-root #{&}#{$modifier}#{$name} {
+    @content;
+  }
+}

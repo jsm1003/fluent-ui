@@ -1,0 +1,25 @@
+@include comp(menu) {
+  &.size-default {
+    --menu-size_width: 200px;
+    --subMenu-size_height: 40px;
+    --menuItem-size_height: 40px;
+  }
+
+  &.size-large {
+    --menu-size_width: 220px;
+    --subMenu-size_height: 44px;
+    --menuItem-size_height: 44px;
+  }
+
+  &.size-small {
+    --menu-size_width: 180px;
+    --subMenu-size_height: 36px;
+    --menuItem-size_height: 36px;
+  }
+
+  display: flex;
+  flex-direction: column;
+  width: var(--menu-size_width);
+  background-color: var(--menu_background);
+  // border: 1px solid var(--fd-bd-color);
+}

@@ -1,0 +1,25 @@
+@include comp(menu-item) {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  height: var(--menuItem-size_height);
+  padding: 0 4px;
+  color: var(--menuItem_foreground);
+  cursor: pointer;
+
+  &:active {
+    transform: scale(0.99);
+  }
+
+  &:hover {
+    background-color: var(--menuItem_hoverBackground);
+  }
+
+  &.is-selected {
+    border: 1px solid #cccccc;
+    border-left: none;
+    border-right: none;
+
+    background-color: var(--menuItem_activeBackground);
+  }
+}
