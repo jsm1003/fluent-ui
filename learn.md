@@ -31,6 +31,14 @@ flex: 0 1 auto;
 
 [http://chenglou.github.io/react-motion/demos/demo3-todomvc-list-transition/](http://chenglou.github.io/react-motion/demos/demo3-todomvc-list-transition/)
 
+1. react-move
+
+2. https://scrimba.com/p/ppYrcJ/cdmVpU8
+
+3. react-live
+
+4. https://github.com/nkbt/react-collapse
+
 ## try
 
 fuse-box
