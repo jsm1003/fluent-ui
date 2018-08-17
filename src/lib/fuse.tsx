@@ -63,4 +63,26 @@ export const inject = curry(
   },
 );
 
-export const provider = curry((Provider, Target) => {});
+export const provider = curry(
+  (Provider: React.ComponentType<React.ProviderProps<any>>, Target: typeof Component) => {
+    const context = {};
+
+    Object.defineProperty(context, '$root', {
+      get: () => Target.prototype,
+    });
+
+    class Injector extends Component {
+      render() {
+        return (
+          <Provider value={context}>
+            <Target {...this.props} />
+          </Provider>
+        );
+      }
+    }
+
+    Object.keys(Target).forEach(key => {
+      Injector[key] = Target[key];
+    });
+  },
+);
