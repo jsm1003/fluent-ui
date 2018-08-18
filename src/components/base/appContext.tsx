@@ -16,7 +16,7 @@ export enum sizes {
 
 export const AppContext = React.createContext({});
 
-export const inject = injectCurry(AppContext);
+export const inject = injectCurry(AppContext.Consumer);
 
 export class AppProvider extends Component<{}, {}> {
   private $theme = themes.light;

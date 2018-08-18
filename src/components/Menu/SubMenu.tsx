@@ -6,7 +6,7 @@ import styler, { Styler } from 'stylefire';
 import { consumer } from './MenuContext';
 
 export interface SubMenuProps {
-  name: string;
+  key: string;
   label: string | React.ReactNode;
 }
 
@@ -64,9 +64,7 @@ export class SubMenu extends Component<SubMenuProps, SubMenuStates> {
       <li className="fd-sub-menu">
         <div className="fd-sub-menu_header" onClick={this.handleSubMenuClick}>
           <span className="fd-sub-menu_label">{this.props.label}</span>
-          <span className="fd-sub-menu_indicator">
-            {this.indicatiorContonent}
-          </span>
+          <span className="fd-sub-menu_indicator">{this.indicatiorContonent}</span>
         </div>
         <ul ref={this.ulDom} className={this.menuItemWrapperClasses}>
           {this.props.children}

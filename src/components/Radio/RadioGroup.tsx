@@ -1,15 +1,17 @@
 import React, { Component } from 'react';
 import classNames from 'classnames';
 
+import { inject } from '@components/base/appContext';
 import { consumer, provider } from './RadioContext';
 import { Radio } from './Radio';
 
+@inject(['size'])
 @provider
 export class RadioGroup extends Component<any, any> {
   static Radio = consumer(Radio);
 
   state = {
-    selectedItems: this.props.selectedItem,
+    selectedItemKeys: [this.props.selectedItemKey],
   };
 
   get classes() {
@@ -18,9 +20,19 @@ export class RadioGroup extends Component<any, any> {
     });
   }
 
-  static getDerivedStateFromProps(nextProps, prevState) {}
+  static getDerivedStateFromProps(nextProps, prevState) {
+    return { selectedItemKeys: [nextProps.selectedItemKeys] };
+  }
 
-  handleInputElementClick(event: React.SyntheticEvent, item: Radio) {}
+  // TODO: add @onSelected ?
+  handleInputElementClick(event: React.SyntheticEvent, item: Radio) {
+    console.log('??');
+
+    this.setState(
+      { selectedItemKeys: [item.props.key] },
+      this.props!.onSelect(event, item),
+    );
+  }
 
   render() {
     return <div className={this.classes}>{this.props.children}</div>;

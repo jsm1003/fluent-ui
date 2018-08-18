@@ -5,10 +5,6 @@ import { consumer } from './MenuContext';
 
 @consumer
 export class MenuItemGroup extends Component<any, any> {
-  constructor(props) {
-    super(props);
-  }
-
   render() {
     return (
       <li className="fd-menu-item-group">

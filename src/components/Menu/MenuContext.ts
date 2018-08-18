@@ -1,6 +1,8 @@
 import React from 'react';
-import { consumer as consumerCurry } from '@/lib';
+import { consumer as consumerCurry, provider as providerCurry } from '@/lib';
 
-export const MenuContext: React.Context<any> = React.createContext({});
+export const MenuContext = React.createContext({});
 
-export const consumer = consumerCurry(MenuContext);
+export const consumer = consumerCurry(MenuContext.Consumer);
+
+export const provider = providerCurry(MenuContext.Provider);

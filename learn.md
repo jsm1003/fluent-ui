@@ -42,3 +42,7 @@ flex: 0 1 auto;
 ## try
 
 fuse-box
+
+## 扩展， 其他选择
+
+https://github.com/ionic-team/stencil

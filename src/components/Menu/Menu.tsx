@@ -3,7 +3,7 @@ import classNames from 'classnames';
 import PropTypes from 'prop-types';
 
 import { inject } from '@components/base/appContext';
-import { MenuContext } from '@components/Menu/MenuContext';
+import { provider } from '@components/Menu/MenuContext';
 import { MenuItemGroup } from '@components/Menu/MenuItemGroup';
 import { MenuItem } from '@components/Menu/MenuItem';
 import { SubMenu } from '@components/Menu/SubMenu';
@@ -12,16 +12,17 @@ export interface MenuProps {
   // fullly controlled
   size?: string;
   //
-  selectedMenuItemName: string;
-  onMenuSelect?(selectMenuItemName: string): void;
+  selectedItemKey: string;
+  onSelect?: (item: any, event: React.SyntheticEvent) => any;
 }
 
 @inject(['size'])
+@provider
 export default class Menu extends Component<MenuProps, {}> {
   static propTypes = {
     size: PropTypes.string,
-    selectedMenuItemName: PropTypes.string,
-    onMenuSelect: PropTypes.func,
+    selectedMenuItemNames: PropTypes.string,
+    onSelect: PropTypes.func,
   };
 
   static MenuItem = MenuItem;
@@ -29,7 +30,7 @@ export default class Menu extends Component<MenuProps, {}> {
   static SubMenu = SubMenu;
 
   state = {
-    selectedMenuItemName: this.props.selectedMenuItemName,
+    selectedItemKeys: [this.props.selectedItemKey],
   };
 
   get classes() {
@@ -40,18 +41,16 @@ export default class Menu extends Component<MenuProps, {}> {
   }
 
   static getDerivedStateFromProps(nextProps, prevState) {
-    if (nextProps.selectedMenuItemName !== prevState.prevSelectedMenuItemName) {
-      return {
-        prevSelectedMenuItemName: nextProps.selectedMenuItemName,
-        selectedMenuItemName: nextProps.selectedMenuItemName,
-      };
-    }
-
-    return null;
+    return { selectedItemKeys: [nextProps.selectedItemKey] };
   }
 
   handleMenuClick(event: React.MouseEvent, menuItem: MenuItem) {
-    this.props!.onMenuSelect(menuItem.props.name);
+    this.setState(
+      {
+        selectedItemKeys: [menuItem.props.key],
+      },
+      this.props!.onSelect(menuItem.props.key, event),
+    );
   }
 
   componentDidMount() {
@@ -60,14 +59,12 @@ export default class Menu extends Component<MenuProps, {}> {
 
   render() {
     return (
-      <MenuContext.Provider value={{ root: this }}>
-        <ul role="menu" className={this.classes}>
-          {this.props.children}
-          <span className="fd-menu-indicator" style={{ display: 'none' }}>
-            indicator
-          </span>
-        </ul>
-      </MenuContext.Provider>
+      <ul role="menu" className={this.classes}>
+        {this.props.children}
+        <span className="fd-menu-indicator" style={{ display: 'none' }}>
+          indicator
+        </span>
+      </ul>
     );
   }
 }

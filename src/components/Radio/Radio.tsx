@@ -7,9 +7,14 @@ export class Radio extends InputElement {
   get classes() {
     return classNames({
       'fd-radio': true,
-      selected: this.selected,
+      'is-selected': this.selected,
     });
   }
+
+  onChange = (event: React.SyntheticEvent) => {
+    const eventState = event.target.checked;
+    this.handleOnChange(eventState, event);
+  };
 
   render() {
     return (
@@ -17,7 +22,6 @@ export class Radio extends InputElement {
         className={this.classes}
         type="radio"
         value={this.props.value}
-        key={this.props.key}
         onChange={this.onChange}
       />
     );

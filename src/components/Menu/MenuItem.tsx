@@ -1,35 +1,31 @@
 import React, { Component } from 'react';
 import classNames from 'classnames';
 
+import { InputElement } from '@/lib';
 import { consumer } from '@components/Menu/MenuContext';
 import Menu from '@components/Menu/Menu';
 
 export interface MenuItemProps {
-  name: string;
+  key: string;
   root?: Menu;
 }
 
 @consumer
-export class MenuItem extends Component<MenuItemProps, {}> {
+export class MenuItem extends InputElement {
   get classes() {
     return classNames({
       'fd-menu-item': true,
-      'is-selected':
-        this.props.name === this.props.root.state.selectedMenuItemName,
+      'is-selected': this.selected,
     });
   }
 
-  handleClick = (event: React.MouseEvent) => {
-    this.props.root.setState({
-      selectedMenuItemName: this.props.name,
-    });
-
-    this.props.root.handleMenuClick(event, this);
+  onClick = (event: React.SyntheticEvent) => {
+    this.handleOnChange(undefined, event);
   };
 
   render() {
     return (
-      <li className={this.classes} onClick={this.handleClick}>
+      <li className={this.classes} onClick={this.onClick}>
         {this.props.children}
       </li>
     );
