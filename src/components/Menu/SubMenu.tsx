@@ -6,7 +6,7 @@ import styler, { Styler } from 'stylefire';
 import { consumer } from './MenuContext';
 
 export interface SubMenuProps {
-  key: string;
+  name: string;
   label: string | React.ReactNode;
 }
 

@@ -33,19 +33,19 @@ export default class FdMenu extends Component<any, any> {
       <FdBoard>
         <button onClick={this.toggleActiveItem}>切换菜单</button>
         <button onClick={this.toggleTheme}>切换主题</button>
-        <Menu size={size} selectedItemKey={activeMenuItem} onSelect={this.onMenuSelect}>
+        <Menu size={size} selectedItemName={activeMenuItem} onSelect={this.onMenuSelect}>
           <Menu.MenuItemGroup label="AA">
-            <Menu.MenuItem key="1-1">Adobe photoshop</Menu.MenuItem>
-            <Menu.MenuItem key="1-2">Adobe AfterEffects</Menu.MenuItem>
+            <Menu.MenuItem name="1-1">Adobe photoshop</Menu.MenuItem>
+            <Menu.MenuItem name="1-2">Adobe AfterEffects</Menu.MenuItem>
           </Menu.MenuItemGroup>
           <Menu.MenuItemGroup label="NN">
-            <Menu.MenuItem key="2-1">Nodejs</Menu.MenuItem>
-            <Menu.MenuItem key="2-2">Nvidia</Menu.MenuItem>
+            <Menu.MenuItem name="2-1">Nodejs</Menu.MenuItem>
+            <Menu.MenuItem name="2-2">Nvidia</Menu.MenuItem>
           </Menu.MenuItemGroup>
           <Menu.MenuItemGroup label="LL">
-            <Menu.SubMenu key="3" label="FrontEnd">
-              <Menu.MenuItem key="3-1">Vue</Menu.MenuItem>
-              <Menu.MenuItem key="3-2">React</Menu.MenuItem>
+            <Menu.SubMenu name="3" label="FrontEnd">
+              <Menu.MenuItem name="3-1">Vue</Menu.MenuItem>
+              <Menu.MenuItem name="3-2">React</Menu.MenuItem>
             </Menu.SubMenu>
           </Menu.MenuItemGroup>
         </Menu>

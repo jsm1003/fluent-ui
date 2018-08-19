@@ -39,22 +39,38 @@ export const consumer = curry(
 // BUG: context API 在 provider中 传递的对象的 get， 在 consumer 中找不到。。
 export const provider = curry(
   (Provider: React.ComponentType<React.ProviderProps<any>>, Target: typeof Component) => {
-    const context = {};
+    // const context = {};
 
-    Object.defineProperty(context, '$root', {
-      get: () => Target.prototype,
-      enumerable: true,
-    });
+    /* 不能注入 */
+    // Object.defineProperty(context, '$root', {
+    //   get: () => Target.prototype,
+    //   enumerable: true,
+    // });
 
-    class Injector extends Component {
+    /* 可以注入， 是我的问题 */
+    // const context = Object.freeze({
+    //   $root: Target.prototype,
+    // });
+
+    class Injector extends Target {
       render() {
-        return (
-          <Provider value={context}>
-            <Target {...this.props} />
-          </Provider>
-        );
+        return <Provider value={{ $root: this }}>{super.render()}</Provider>;
       }
     }
+
+    // const context = {
+    //   $root: Target.prototype,
+    // };
+
+    // class Injector extends Component {
+    //   render() {
+    //     return (
+    //       <Provider value={context}>
+    //         <Target {...this.props} />
+    //       </Provider>
+    //     );
+    //   }
+    // }
 
     Object.keys(Target).forEach(key => {
       Injector[key] = Target[key];

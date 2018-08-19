@@ -7,14 +7,16 @@ export interface InputElementStates {
 export interface InputElementProps {
   readonly $root?: any;
   selected?: boolean;
-  key: any;
+  name: any;
   value?: any;
 }
 
 export class InputElement extends Component<InputElementProps, InputElementStates> {
   // 状态
   state = {
-    selected: this.props.$root ? this.props.$root.state.selectedItems.includes(this.props.key) : this.props.selected,
+    selected: this.props.$root
+      ? this.props.$root.state.selectedItemNames.includes(this.props.name)
+      : this.props.selected,
   };
 
   // If there is acceptable to its state of the parent component,
@@ -26,7 +28,6 @@ export class InputElement extends Component<InputElementProps, InputElementState
 
   //
   handleOnChange(eventState, event: React.SyntheticEvent) {
-    console.log(this.props.$root);
     if (this.props.$root) {
       this.props.$root.handleInputElementClick(event, this);
     } else {
@@ -36,5 +37,8 @@ export class InputElement extends Component<InputElementProps, InputElementState
 
   // computed state , apply to style
   get selected() {
-    return this.state.selected;
+    return this.props.$root
+      ? this.props.$root.state.selectedItemNames.includes(this.props.name)
+      : this.props.selected;
+  }
 }

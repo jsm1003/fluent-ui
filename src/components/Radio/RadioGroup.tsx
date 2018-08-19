@@ -11,7 +11,7 @@ export class RadioGroup extends Component<any, any> {
   static Radio = consumer(Radio);
 
   state = {
-    selectedItemKeys: [this.props.selectedItemKey],
+    selectedItemNames: [this.props.selectedItemName],
   };
 
   get classes() {
@@ -21,7 +21,7 @@ export class RadioGroup extends Component<any, any> {
   }
 
   static getDerivedStateFromProps(nextProps, prevState) {
-    return { selectedItemKeys: [nextProps.selectedItemKeys] };
+    return { selectedItemNames: [nextProps.selectedItemName] };
   }
 
   // TODO: add @onSelected ?
@@ -29,7 +29,7 @@ export class RadioGroup extends Component<any, any> {
     console.log('??');
 
     this.setState(
-      { selectedItemKeys: [item.props.key] },
+      { selectedItemNames: [item.props.name] },
       this.props!.onSelect(event, item),
     );
   }

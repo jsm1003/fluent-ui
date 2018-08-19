@@ -12,7 +12,7 @@ export interface MenuProps {
   // fullly controlled
   size?: string;
   //
-  selectedItemKey: string;
+  selectedItemName: string;
   onSelect?: (item: any, event: React.SyntheticEvent) => any;
 }
 
@@ -21,7 +21,7 @@ export interface MenuProps {
 export default class Menu extends Component<MenuProps, {}> {
   static propTypes = {
     size: PropTypes.string,
-    selectedMenuItemNames: PropTypes.string,
+    selectedItemName: PropTypes.string,
     onSelect: PropTypes.func,
   };
 
@@ -30,7 +30,7 @@ export default class Menu extends Component<MenuProps, {}> {
   static SubMenu = SubMenu;
 
   state = {
-    selectedItemKeys: [this.props.selectedItemKey],
+    selectedItemNames: [this.props.selectedItemName],
   };
 
   get classes() {
@@ -41,20 +41,23 @@ export default class Menu extends Component<MenuProps, {}> {
   }
 
   static getDerivedStateFromProps(nextProps, prevState) {
-    return { selectedItemKeys: [nextProps.selectedItemKey] };
+    return { selectedItemNames: [nextProps.selectedItemName] };
   }
 
-  handleMenuClick(event: React.MouseEvent, menuItem: MenuItem) {
+  handleInputElementClick = (event: React.SyntheticEvent, menuItem: MenuItem) => {
+    console.log(this);
     this.setState(
       {
-        selectedItemKeys: [menuItem.props.key],
+        selectedItemNames: [menuItem.props.name],
       },
-      this.props!.onSelect(menuItem.props.key, event),
+      () => {
+        this.props!.onSelect(menuItem.props.name, event);
+      },
     );
-  }
+  };
 
   componentDidMount() {
-    console.log(this.props.size);
+    // console.log(this.props.size);
   }
 
   render() {
