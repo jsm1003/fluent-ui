@@ -2,6 +2,7 @@ node_modules
 npm-debug*
 dist
 .cache-loader
+learn.md
 
 
 
