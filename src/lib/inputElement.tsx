@@ -5,33 +5,21 @@ export interface InputElementStates {
 }
 
 export interface InputElementProps {
-  readonly $root?: any;
+  $root?: any;
   selected?: boolean;
+  defaultSelected?: boolean;
   name: any;
   value?: any;
+  label?: any;
+  onSelect?(event: React.SyntheticEvent): void;
 }
 
 export class InputElement extends Component<InputElementProps, InputElementStates> {
-  // 状态
-  state = {
-    selected: this.props.$root
-      ? this.props.$root.state.selectedItemNames.includes(this.props.name)
-      : this.props.selected,
-  };
-
-  // If there is acceptable to its state of the parent component,
-  // then it gives control to the parent component, or to the external component
-  // 如果有可接受自身状态的父组件，那么就把控制权交给父组件，否则，交给外部组件
-  static getDerivedStateFromProps(nextProps, prevState) {
-    return nextProps.$root ? null : { selected: nextProps.selected };
-  }
-
-  //
   handleOnChange(eventState, event: React.SyntheticEvent) {
     if (this.props.$root) {
       this.props.$root.handleInputElementClick(event, this);
     } else {
-      this.setState({ selected: eventState });
+      this.props.onSelect(event);
     }
   }
 
@@ -40,5 +28,9 @@ export class InputElement extends Component<InputElementProps, InputElementState
     return this.props.$root
       ? this.props.$root.state.selectedItemNames.includes(this.props.name)
       : this.props.selected;
+  }
+
+  get content() {
+    return this.props.label || this.props.children;
   }
 }

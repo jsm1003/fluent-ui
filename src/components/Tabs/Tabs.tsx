@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import { findDOMNode } from 'react-dom';
-import PropTypes from 'prop-types';
 import anime from 'animejs';
 import classNames from 'classnames';
 
@@ -20,10 +19,6 @@ export interface TabStates {
 
 export class Tabs extends Component<TabProps, TabStates> {
   static defaultProps = {};
-  static propTypes = {
-    activeTabName: PropTypes.string,
-    onTabSelect: PropTypes.func,
-  };
   static TabPane = TabPane;
 
   indicator: HTMLElement;
@@ -65,14 +60,11 @@ export class Tabs extends Component<TabProps, TabStates> {
 
   init() {
     const { children } = this.props;
-    React.Children.forEach(
-      children,
-      (item: React.ReactElement<TabPaneProps>, index) => {
-        if (this.props.activeTabName === item.props.name) {
-          this.selectedIndex = index;
-        }
-      },
-    );
+    React.Children.forEach(children, (item: React.ReactElement<TabPaneProps>, index) => {
+      if (this.props.activeTabName === item.props.name) {
+        this.selectedIndex = index;
+      }
+    });
 
     if (!this.selectedIndex) {
       this.selectedIndex = 0;

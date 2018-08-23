@@ -1,6 +1,6 @@
 {
   "compilerOptions": {
-    "target": "es6",
+    "target": "esnext",
     "module": "esnext",
     "moduleResolution": "node",
     "allowSyntheticDefaultImports": true,
@@ -19,15 +19,8 @@
     "noUnusedLocals": true,
     "importHelpers": true,
     "experimentalDecorators": true,
-    "lib": [
-      "esnext",
-      "es7",
-      "es6",
-      "es5",
-      "es2015.promise",
-      "es2015.generator",
-      "dom"
-    ],
+    "strictNullChecks": true,
+    "lib": ["esnext", "es7", "es6", "es5", "es2015.promise", "es2015.generator", "dom"],
     "skipLibCheck": true,
     "typeRoots": ["node", "node_modules/@types"]
   }

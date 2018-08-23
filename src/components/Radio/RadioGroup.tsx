@@ -11,7 +11,9 @@ export class RadioGroup extends Component<any, any> {
   static Radio = consumer(Radio);
 
   state = {
-    selectedItemNames: [this.props.selectedItemName],
+    selectedItemNames: [
+      this.props.selectedItemName || this.props.defaultSelectedItemName,
+    ],
   };
 
   get classes() {
@@ -21,18 +23,26 @@ export class RadioGroup extends Component<any, any> {
   }
 
   static getDerivedStateFromProps(nextProps, prevState) {
-    return { selectedItemNames: [nextProps.selectedItemName] };
+    if (nextProps.selectedItemName) {
+      return { selectedItemNames: [nextProps.selectedItemName] };
+    } else {
+      return { selectedItemNames: prevState.selectedItemNames };
+    }
   }
 
-  // TODO: add @onSelected ?
-  handleInputElementClick(event: React.SyntheticEvent, item: Radio) {
-    console.log('??');
-
+  handleInputElementClick = (event: React.SyntheticEvent, radio: Radio) => {
     this.setState(
-      { selectedItemNames: [item.props.name] },
-      this.props!.onSelect(event, item),
+      {
+        selectedItemNames: [radio.props.name],
+      },
+      () => {
+        // TODO: this.props.onSelect?(radio.props.name, event)
+        if (this.props.onSelect) {
+          this.props.onSelect(radio.props.name, event);
+        }
+      },
     );
-  }
+  };
 
   render() {
     return <div className={this.classes}>{this.props.children}</div>;

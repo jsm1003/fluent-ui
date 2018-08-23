@@ -18,12 +18,15 @@ export class Radio extends InputElement {
 
   render() {
     return (
-      <input
-        className={this.classes}
-        type="radio"
-        value={this.props.value}
-        onChange={this.onChange}
-      />
+      <label className={this.classes}>
+        <input
+          className="fd-radio_iput"
+          type="radio"
+          value={this.props.value}
+          onChange={this.onChange}
+        />
+        <span className="fd-radio_label">{this.content}</span>
+      </label>
     );
   }
 }

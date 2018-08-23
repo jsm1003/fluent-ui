@@ -14,7 +14,7 @@ export default class FdMenu extends Component<any, any> {
   };
 
   onMenuSelect = (event, key) => {
-    console.log(key);
+    console.log(event);
   };
 
   toggleActiveItem = () => {
@@ -33,7 +33,7 @@ export default class FdMenu extends Component<any, any> {
       <FdBoard>
         <button onClick={this.toggleActiveItem}>切换菜单</button>
         <button onClick={this.toggleTheme}>切换主题</button>
-        <Menu size={size} selectedItemName={activeMenuItem} onSelect={this.onMenuSelect}>
+        <Menu size={size} defaultSelectedItemName={activeMenuItem}>
           <Menu.MenuItemGroup label="AA">
             <Menu.MenuItem name="1-1">Adobe photoshop</Menu.MenuItem>
             <Menu.MenuItem name="1-2">Adobe AfterEffects</Menu.MenuItem>

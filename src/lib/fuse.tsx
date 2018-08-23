@@ -12,6 +12,7 @@ export const wrapper = curry((Wrapper: typeof Component, Target: typeof Componen
     }
   }
 
+  // copy static properties from original class
   Object.keys(Target).forEach(key => {
     Injector[key] = Target[key];
   });
@@ -27,7 +28,6 @@ export const consumer = curry(
       }
     }
 
-    // copy static properties from original class
     Object.keys(Target).forEach(key => {
       Injector[key] = Target[key];
     });
@@ -36,41 +36,14 @@ export const consumer = curry(
   },
 );
 
-// BUG: context API 在 provider中 传递的对象的 get， 在 consumer 中找不到。。
+// BUG: context API 在 provider中 传递的对象的 get， 在 consumer 中找不到。。。
 export const provider = curry(
   (Provider: React.ComponentType<React.ProviderProps<any>>, Target: typeof Component) => {
-    // const context = {};
-
-    /* 不能注入 */
-    // Object.defineProperty(context, '$root', {
-    //   get: () => Target.prototype,
-    //   enumerable: true,
-    // });
-
-    /* 可以注入， 是我的问题 */
-    // const context = Object.freeze({
-    //   $root: Target.prototype,
-    // });
-
     class Injector extends Target {
       render() {
         return <Provider value={{ $root: this }}>{super.render()}</Provider>;
       }
     }
-
-    // const context = {
-    //   $root: Target.prototype,
-    // };
-
-    // class Injector extends Component {
-    //   render() {
-    //     return (
-    //       <Provider value={context}>
-    //         <Target {...this.props} />
-    //       </Provider>
-    //     );
-    //   }
-    // }
 
     Object.keys(Target).forEach(key => {
       Injector[key] = Target[key];
@@ -81,7 +54,11 @@ export const provider = curry(
 );
 
 export const inject = curry(
-  (Consumer: typeof Component, storeNames: string[], Target: typeof Component) => {
+  (
+    Consumer: React.ComponentType<React.ConsumerProps<any>>,
+    storeNames: string[],
+    Target: typeof Component,
+  ) => {
     class Injector extends Component {
       render() {
         return (

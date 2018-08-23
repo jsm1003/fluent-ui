@@ -1,0 +1,12 @@
+@include comp(radio) {
+  &.is-selected {
+    color: red;
+  }
+
+  @include elem(input) {
+    display: none;
+  }
+
+  @include elem(label) {
+  }
+}

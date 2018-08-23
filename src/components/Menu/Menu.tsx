@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import classNames from 'classnames';
-import PropTypes from 'prop-types';
 
 import { inject } from '@components/base/appContext';
 import { provider } from '@components/Menu/MenuContext';
@@ -12,25 +11,22 @@ export interface MenuProps {
   // fullly controlled
   size?: string;
   //
-  selectedItemName: string;
+  selectedItemName?: string;
+  defaultSelectedItemName?: string;
   onSelect?: (item: any, event: React.SyntheticEvent) => any;
 }
 
 @inject(['size'])
 @provider
 export default class Menu extends Component<MenuProps, {}> {
-  static propTypes = {
-    size: PropTypes.string,
-    selectedItemName: PropTypes.string,
-    onSelect: PropTypes.func,
-  };
-
   static MenuItem = MenuItem;
   static MenuItemGroup = MenuItemGroup;
   static SubMenu = SubMenu;
 
   state = {
-    selectedItemNames: [this.props.selectedItemName],
+    selectedItemNames: [
+      this.props.selectedItemName || this.props.defaultSelectedItemName,
+    ],
   };
 
   get classes() {
@@ -41,17 +37,22 @@ export default class Menu extends Component<MenuProps, {}> {
   }
 
   static getDerivedStateFromProps(nextProps, prevState) {
-    return { selectedItemNames: [nextProps.selectedItemName] };
+    if (nextProps.selectedItemName) {
+      return { selectedItemNames: [nextProps.selectedItemName] };
+    } else {
+      return { selectedItemNames: prevState.selectedItemNames };
+    }
   }
 
   handleInputElementClick = (event: React.SyntheticEvent, menuItem: MenuItem) => {
-    console.log(this);
     this.setState(
       {
         selectedItemNames: [menuItem.props.name],
       },
       () => {
-        this.props!.onSelect(menuItem.props.name, event);
+        if (this.props.onSelect) {
+          this.props.onSelect(menuItem.props.name, event);
+        }
       },
     );
   };
