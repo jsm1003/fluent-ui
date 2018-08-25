@@ -1,13 +1,8 @@
 $ns: 'fd';
-
 /*----------  Generate component classname  ----------*/
 
-@function compFunc($component) {
-  @return '#{$ns}-#{$component}';
-}
-
 @mixin comp($component) {
-  $componentName: compFunc($component);
+  $componentName: '#{$ns}-#{$component}' !global;
 
   .#{$componentName} {
     @content;
@@ -17,9 +12,9 @@ $ns: 'fd';
 /*----------  Generate element classname  ----------*/
 
 @mixin elem($name) {
-  $modifier: '_';
+  $elementName: '#{$componentName}_#{$name}';
 
-  @at-root #{&}#{$modifier}#{$name} {
+  @at-root .#{$elementName} {
     @content;
   }
 }
