@@ -7,6 +7,7 @@ import { TabPane } from './TabPane';
 import { TabPaneProps } from './TabPane';
 
 import * as styles from './Tabs.scss';
+import { provider } from '@components/Ttabs/TabContext';
 
 export interface TabProps {
   activeTabName: string;
@@ -17,12 +18,14 @@ export interface TabStates {
   activeTabName: string;
 }
 
+@provider
 export class Tabs extends Component<TabProps, TabStates> {
   static defaultProps = {};
   static TabPane = TabPane;
 
   indicator: HTMLElement;
   selectedIndex: number;
+  children: any[] = [];
 
   constructor(props) {
     super(props);
