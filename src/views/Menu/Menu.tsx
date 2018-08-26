@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
 import classNames from 'classnames';
 
-import { FdBoard } from '@/views/Board/Board';
-import Menu from '@components/Menu/Menu';
 import { inject } from '@components/base/appContext';
+import { FdBoard } from '@/views/Board/Board';
+import { Menu } from '@components/Menu/Menu';
 
 @inject(['toggleTheme'])
 export default class FdMenu extends Component<any, any> {

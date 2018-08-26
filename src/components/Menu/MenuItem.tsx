@@ -19,13 +19,17 @@ export class MenuItem extends InputElement {
     });
   }
 
-  onClick = (event: React.SyntheticEvent) => {
+  handleOnClick = (event: React.SyntheticEvent) => {
     this.handleOnChange(undefined, event);
   };
 
+  componentDidMount() {
+    console.log('child mount');
+  }
+
   render() {
     return (
-      <li className={this.classes} onClick={this.onClick}>
+      <li className={this.classes} onClick={this.handleOnClick}>
         {this.props.children}
       </li>
     );

@@ -26,3 +26,7 @@ export const fdSubMenuItemWrapper: string;
 export const isExpand: string;
 export const fdSubMenuLabel: string;
 export const fdSubMenuIndicator: string;
+export const fdTabsHead: string;
+export const fdTabsHeadItem: string;
+export const fdTabsBody: string;
+export const fdTabsBodyItem: string;

@@ -18,7 +18,7 @@ export interface MenuProps {
 
 @inject(['size'])
 @provider
-export default class Menu extends Component<MenuProps, {}> {
+export class Menu extends Component<MenuProps, {}> {
   static MenuItem = MenuItem;
   static MenuItemGroup = MenuItemGroup;
   static SubMenu = SubMenu;
@@ -58,7 +58,7 @@ export default class Menu extends Component<MenuProps, {}> {
   };
 
   componentDidMount() {
-    // console.log(this.props.size);
+    console.log('parent mount');
   }
 
   render() {
