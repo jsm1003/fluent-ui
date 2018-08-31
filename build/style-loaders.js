@@ -53,6 +53,8 @@ module.exports = config.extractCss
         use: ExtractTextPlugin.extract({
           fallback: 'style-loader',
           use: [
+            getLoadingWithoutSourceMap('css-loader'),
+            getLoadingWithoutSourceMap('postcss-loader'),
             'cache-loader',
             {
               loader: 'thread-loader',
@@ -60,8 +62,6 @@ module.exports = config.extractCss
                 workerParallelJobs: 2,
               },
             },
-            getLoadingWithoutSourceMap('css-loader'),
-            getLoadingWithoutSourceMap('postcss-loader'),
             getLoadingWithoutSourceMap('sass-loader'),
           ],
         }),
