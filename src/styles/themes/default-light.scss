@@ -1,0 +1,31 @@
+.theme_default-light {
+  /*----------  primary color  ----------*/
+
+  // foreground
+  --primary_foreground-color: #333333;
+  --primary_activeForeground-color: #222222;
+  --primary_linkForeground-color: #29b4f0;
+
+  // background
+  --primary_compBackground-color: #e1e1e1;
+  // --primary_background-color: $light-primary_background-color;
+  --primary_activeBackground-color: #cccccc;
+
+  /*----------  menu  ----------*/
+
+  --menu_background: var(--primary_compBackground-color);
+  --menuItem_foreground: var(--primary_foreground-color);
+  --menuItem_hoverBackground: #cccccc;
+  --menuItem_activeBackground: var(--primary_activeBackground-color);
+  --menuGroup_foreground: var(--primary_foreground-color);
+  --subMenu_foreground: var(--primary_foreground-color);
+
+  /*----------  tabs  ----------*/
+
+  --tabs_foreground: var(--primary_foreground-color);
+  --tabs_hoverForeground: #666666;
+  --tabs_activeForeground: var(--primary_activeForeground-color);
+
+  /*----------  button  ----------*/
+  /* TODO */
+}

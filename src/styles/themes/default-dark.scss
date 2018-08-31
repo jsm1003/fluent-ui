@@ -1,0 +1,28 @@
+.theme_default-dark {
+  /*----------  primary color  ----------*/
+
+  // foreground
+  --primary_foreground-color: #cccccc;
+  --primary_activeForeground-color: #fefefe;
+  --primary_linkForeground-color: #29b4f0;
+
+  // background
+  --primary_compBackground-color: #202020;
+  // --primary_background-color: $dark-primary_background-color;
+  --primary_activeBackground-color: #454545;
+
+  /*----------  menu  ----------*/
+
+  --menu_background: var(--primary_compBackground-color);
+  --menuItem_foreground: var(--primary_foreground-color);
+  --menuItem_hoverBackground: #454545;
+  --menuItem_activeBackground: var(--primary_activeBackground-color);
+  --menuGroup_foreground: var(--primary_foreground-color);
+  --subMenu_foreground: var(--primary_foreground-color);
+
+  /*----------  tabs  ----------*/
+
+  --tabs_foreground: var(--primary_foreground-color);
+  --tabs_hoverForeground: #e0e0e0;
+  --tabs_activeForeground: var(--primary_activeForeground-color);
+}
