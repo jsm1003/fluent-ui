@@ -15,6 +15,12 @@ export class Tabs extends Component<any, any> {
     ],
   };
 
+  get classes() {
+    return classNames({
+      'fd-tabs': true,
+    });
+  }
+
   get tabHead() {
     const tabHead = React.Children.map(
       this.props.children,
@@ -59,7 +65,7 @@ export class Tabs extends Component<any, any> {
 
   render() {
     return (
-      <div className="fd-tabs">
+      <div className={`fd-tabs size-${this.props.size}`}>
         <div className="fd-tabs_head">{this.tabHead}</div>
         <div className="fd-tabs_body">{this.tabBody}</div>
       </div>

@@ -27,6 +27,7 @@ export const isExpand: string;
 export const fdSubMenuLabel: string;
 export const fdSubMenuIndicator: string;
 export const fdTabsHead: string;
+export const fdTabsIndicator: string;
 export const fdTabsHeadItem: string;
 export const fdTabsBody: string;
 export const fdTabsBodyItem: string;

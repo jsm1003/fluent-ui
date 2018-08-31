@@ -7,18 +7,26 @@
     position: relative;
     align-items: stretch;
     height: 40px;
-  }
 
-  @include elem(head-item) {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding: 0 10px;
-    cursor: pointer;
-    user-select: none;
+    @include elem(indicator) {
+      posotion: absolute;
+      left: 0;
+      bottom: 0;
+      height: 2px;
+      background-color: #00abd0;
+    }
 
-    &.is-selected {
-      color: #00abd0;
+    @include elem(head-item) {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 0 10px;
+      cursor: pointer;
+      user-select: none;
+
+      &.is-selected {
+        color: #00abd0;
+      }
     }
   }
 
@@ -30,7 +38,6 @@
     padding: 5px;
 
     @include elem(body-item) {
-      // display: flex;
       display: none;
 
       &.is-selected {
