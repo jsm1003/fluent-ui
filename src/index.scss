@@ -1,9 +1,3 @@
 @import '@/styles/base.scss';
 @import '@/components/index.scss';
 @import '@/views/index.scss';
-
-html {
-  transition: --primary_foreground-color --primary_activeForeground-color
-    --primary_linkForeground-color --primary_compBackground-color
-    --primary_activeBackground-color 0.8s ease-in-out;
-}
