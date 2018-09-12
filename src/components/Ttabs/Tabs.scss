@@ -20,12 +20,15 @@
       display: flex;
       align-items: center;
       justify-content: center;
+      border-bottom: 2px solid transparent;
       padding: 0 10px;
+      font-size: 20px;
       cursor: pointer;
       user-select: none;
 
       &.is-selected {
         color: #00abd0;
+        border-bottom-color: #00abd0;
       }
     }
   }

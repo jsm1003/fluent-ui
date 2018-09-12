@@ -3,6 +3,7 @@
     "target": "esnext",
     "module": "esnext",
     "moduleResolution": "node",
+    "lib": ["esnext", "dom"],
     "allowSyntheticDefaultImports": true,
     "sourceMap": true,
     "removeComments": false,
@@ -14,13 +15,13 @@
       "@components/*": ["components/*"]
     },
     "jsx": "react",
+    "jsxFactory": "React.createElement",
     "alwaysStrict": true,
     "allowJs": true,
     "noUnusedLocals": true,
     "importHelpers": true,
     "experimentalDecorators": true,
     "strictNullChecks": true,
-    "lib": ["esnext", "es7", "es6", "es5", "es2015.promise", "es2015.generator", "dom"],
     "skipLibCheck": true,
     "typeRoots": ["node", "node_modules/@types"]
   }
