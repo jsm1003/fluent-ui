@@ -36,7 +36,7 @@ export const consumer = curry(
   },
 );
 
-// BUG: context API 在 provider中 传递的对象的 get， 在 consumer 中找不到。。。
+// BUG: context API 在 provider 中 传递的对象的 get， 在 consumer 中找不到。。。
 export const provider = curry(
   (Provider: React.ComponentType<React.ProviderProps<any>>, Target: typeof Component) => {
     class Injector extends Target {
