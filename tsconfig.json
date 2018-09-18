@@ -4,25 +4,30 @@
     "module": "esnext",
     "moduleResolution": "node",
     "lib": ["esnext", "dom"],
+    "strict": true,
+    "strictPropertyInitialization": true,
+    "alwaysStrict": true,
     "allowSyntheticDefaultImports": true,
+    "emitDecoratorMetadata": true,
     "sourceMap": true,
     "removeComments": false,
-    "baseUrl": "./src",
-    "paths": {
-      "@/*": ["*"],
-      "@assets/*": ["assets/*"],
-      "@utils/*": ["utils/*"],
-      "@components/*": ["components/*"]
-    },
     "jsx": "react",
     "jsxFactory": "React.createElement",
-    "alwaysStrict": true,
     "allowJs": true,
     "noUnusedLocals": true,
     "importHelpers": true,
     "experimentalDecorators": true,
     "strictNullChecks": true,
     "skipLibCheck": true,
-    "typeRoots": ["node", "node_modules/@types"]
-  }
+    "typeRoots": ["node", "node_modules/@types"],
+    "baseUrl": "./src",
+    "paths": {
+      "@/*": ["*"],
+      "@assets/*": ["assets/*"],
+      "@utils/*": ["utils/*"],
+      "@components/*": ["components/*"]
+    }
+  },
+  "include": ["src"],
+  "exclude": ["node_modules"]
 }
