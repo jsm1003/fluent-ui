@@ -55,8 +55,10 @@ export class SubMenu extends Component<SubMenuProps, SubMenuStates> {
   };
 
   componentDidMount() {
-    this.$ul = styler(this.ulDom.current, {});
-    this.ulDomHeight = this.$ul.get('height');
+    if (this.ulDom.current) {
+      this.$ul = styler(this.ulDom.current, {});
+      this.ulDomHeight = this.$ul.get('height');
+    }
   }
 
   render() {

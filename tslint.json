@@ -1,13 +1,14 @@
 {
   "extends": ["tslint:recommended", "tslint-react"],
   "rules": {
+    "class-name": true,
+    "interface-name": false,
     "align": [true, "arguments", "statements"],
     "arrow-parens": false,
     "arrow-return-shorthand": [false],
     "comment-format": [true, "check-space"],
     "import-blacklist": [true, "rxjs"],
     "interface-over-type-literal": false,
-    "interface-name": false,
     "max-line-length": false,
     "member-access": false,
     "member-ordering": [true, { "order": "fields-first" }],
@@ -17,7 +18,7 @@
     "no-empty-interface": false,
     "no-import-side-effect": false,
     "no-namespace": false,
-    "no-console": false,
+    "no-console": [true, "log"],
     "no-inferrable-types": [true, "ignore-params", "ignore-properties"],
     "no-invalid-this": [true, "check-function-in-method"],
     "no-null-keyword": false,
@@ -47,7 +48,6 @@
       "allow-leading-underscore"
     ],
     "max-classes-per-file": false,
-    // tslint-react
     "jsx-no-lambda": false,
     "jsx-no-multiline-js": false,
     "jsx-curly-spacing": [true, { "when": "never", "allowMultiline": false }],
